@@ -50,7 +50,7 @@ const router = createRouter({
     {
       path:'/user/profile/',
       component:ProfileIndex,
-      name:'profile-index',
+      name:'user-profile-index',
     },
     {
       path:'/:pathMatch(.*)*',
