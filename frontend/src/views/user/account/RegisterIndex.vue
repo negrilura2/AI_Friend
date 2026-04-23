@@ -22,7 +22,7 @@ async function handleRegister(){
     errorMessage.value = '两次输入密码不一致'
   }else {
     try {
-      const res = await api.post('api/user/account/register/',{
+      const res = await api.post('/api/user/account/register/',{
         username: username.value,
         password: password.value,
       })

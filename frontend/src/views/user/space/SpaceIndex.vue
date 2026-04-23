@@ -33,7 +33,7 @@ async function loadMore(){
 
   let newCharacters = []
   try{
-    const res = await api.get('api/create/character/get_list/',{
+    const res = await api.get('/api/create/character/get_list/',{
       params: {
         items_count: characters.value.length,
         user_id: route.params.user_id,

@@ -41,7 +41,7 @@ async function handleCreate() {
     formData.append('background_image',base64ToFile(backgroundImage,'background_image.png'))
 
     try {
-      const res = await api.post('api/create/character/create/',formData)
+      const res = await api.post('/api/create/character/create/',formData)
       const data = res.data
       if (data.result === 'success'){
         await router.push({

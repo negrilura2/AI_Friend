@@ -25,7 +25,7 @@ async function loadMore() {
 
   let newCharacters = []
   try {
-    const res = await api.get('api/homepage/index/',{
+    const res = await api.get('/api/homepage/index/',{
       params: {
         items_count: characters.value.length,
         search_query: route.query.q || '',

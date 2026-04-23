@@ -16,7 +16,7 @@ const characterId = route.params.character_id
 const character = ref(null)
 onMounted(async () =>{
   try {
-    const res = await api.get('api/create/character/get_single/',{
+    const res = await api.get('/api/create/character/get_single/',{
       params:{
         character_id:characterId,
       }
