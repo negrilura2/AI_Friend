@@ -8,7 +8,7 @@
 
 
 import UserInfoField from "@/views/user/space/components/UserInfoField.vue";
-import {nextTick, onBeforeUnmount, onMounted, ref, useTemplateRef} from "vue";
+import {nextTick, onBeforeUnmount, onMounted, ref, useTemplateRef, watch} from "vue";
 import api from "@/js/http/api.js";
 import {useRoute} from "vue-router";
 import Character from "@/components/character/Character.vue";
@@ -82,6 +82,18 @@ function removeCharacter(characterId) {
 
 onBeforeUnmount(() => {
   observer?.disconnect()
+})
+
+function reset() {
+  userProfile.value = null
+  characters.value = []
+  isLoading.value = false
+  hasCharacters.value = true
+  loadMore()
+}
+
+watch(() => route.params.user_id, () => {
+  reset()
 })
 </script>
 
