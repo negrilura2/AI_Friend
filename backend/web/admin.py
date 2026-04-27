@@ -1,8 +1,10 @@
 from django.contrib import admin
 
-from web.models.friend import Friend,Message
+from web.models.friend import Friend,Message,SystemPrompt
 from web.models.user import UserProfile
 from web.models.character import Character
+from web.views.friend.message.chat.graph import ChatGraph
+
 
 @admin.register(UserProfile)
 class UserProfileAdmin(admin.ModelAdmin):
@@ -19,5 +21,7 @@ class FriendAdmin(admin.ModelAdmin):
 @admin.register(Message)
 class MessageAdmin(admin.ModelAdmin):
     raw_id_fields = ('friend',)
+
+admin.site.register(SystemPrompt)
 
 # Register your models here.
