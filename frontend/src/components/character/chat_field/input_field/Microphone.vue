@@ -2,6 +2,7 @@
 import KeyboardIcon from "@/components/character/icons/KeyboardIcon.vue";
 import {onBeforeUnmount, onMounted, ref} from "vue";
 import {MicVAD} from "@ricky0123/vad-web";
+import api from "@/js/http/api.js";
 
 const emit = defineEmits(['close', 'send', 'stop'])
 const isSpeaking = ref(false)
@@ -54,13 +55,12 @@ const sendToBackend = async (arrayBuffer) => {
   formData.append("audio", blob, 'voice.pcm')
 
   try {
-    const res = await api.post('', formData)
+    const res = await api.post('/api/friend/message/asr/asr/', formData)
     const data = res.data
     if (data.result === 'success'){
       emit('send',null, data.text)
     }
   } catch (err) {
-    console.error(err)
   }
 };
 
