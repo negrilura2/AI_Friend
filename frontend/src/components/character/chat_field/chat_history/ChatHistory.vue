@@ -24,7 +24,7 @@ async function loadMore(){
   isLoading = true
   let newMessages = []
   try {
-    const res = await api.get('/api/friend/message/get_history',{
+    const res = await api.get('/api/friend/message/get_history/',{
       params: {
         last_message_id: lastMessageId,
         friend_id: props.friendId,
@@ -35,7 +35,6 @@ async function loadMore(){
       newMessages = data.messages
     }else{
     }
-
   }catch (err){
   }finally {
     isLoading = false
@@ -50,7 +49,7 @@ async function loadMore(){
           emit('pushFrontMessage',{
             role: 'ai',
             content: m.output,
-            id: crypto.randomUUID()
+            id: crypto.randomUUID(),
           })
           emit('pushFrontMessage',{
             role: 'user',
