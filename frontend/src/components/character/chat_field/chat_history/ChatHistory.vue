@@ -33,6 +33,7 @@ async function loadMore(){
     const data = res.data
     if(data.result === 'success'){
       newMessages = data.messages
+    }else{
     }
 
   }catch (err){
